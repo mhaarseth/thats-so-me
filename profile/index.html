@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styling/css/index.css" />
+    <title>That's so me! - Profile</title>
+  </head>
+  <body>
+    <header>
+        <!-- NAVBAR START -->
+        
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+              <div class="container">
+        
+        
+        
+        <!--  MODAL BUTTON -->
+        
+                <button
+                      class="btn btn-outline-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#newPost"
+                    >
+                      New post
+                    </button>
+                </button>
+        
+        <!--  MODAL START-->
+        
+                <div
+                  class="modal fade"
+                  id="newPost"
+                  tabindex="-1"
+                  aria-labelledby="newPostLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="mb-3">
+                          <label for="newPostTextArea" class="form-label"
+                            >What's up?</label
+                          >
+                          <textarea
+                            class="form-control"
+                            id="newPostTextArea"
+                            rows="3"
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button type="button" class="btn btn-primary">Post</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+        <!-- MODAL END -->
+        
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../feed/">Feed</a>
+                    </li>
+                  </ul>
+                  <form class="d-flex" role="search">
+                    <input
+                      class="form-control me-2"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                    <button class="btn btn-outline-primary" type="submit">
+                      Search
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </nav>
+        
+        <!-- NAVBAR END -->
+        </header>
+        
+        <!-- PROFILE START -->
+        
+        <!-- PROFILE DESCRIPTION -->
+        
+        <main class="container md-6">
+            <h1>Profile</h1>  
+                <div class="container col-12 d-flex flex-wrap mb-5">
+                    <div class="container col-md-5 p-0">
+                        <div class="card border-0 mt-3">
+                            <div class="card-body text-center">
+                                <img
+                                src="https://github.com/mdo.png"
+                                alt="mdo"
+                                width="200"
+                                height="200"
+                                class="rounded"
+                                />
+                                <div class="mt-5 fs-5 fw-semibold">Firstname Lastname</div>
+                                <p class="card-text my-4 mt-4">
+                                A short summary of the profile. Maybe a clever quote, and any
+                                other info the user wants to include.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        <!-- PROFILE POSTS -->
+        
+        <div class="accordion accordion-flush" id="profileFollowersAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  POSTS
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#profileFollowersAccordion">
+                    <div class="card mt-4 mb-4">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">28.02.1983</h6>
+                            <p class="card-text">
+                                Clever pun or text, maybe a commentary on current events.
+                            </p>
+                        </div>
+                    </div>
+              </div>
+            </div>
+        
+        <!-- PROFILE FRIENDS -->
+        
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  FOLLOWERS
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#profileFollowersAccordion">
+                <div class="accordion-body">Placeholder content for this accordion, which will contain the profile's followers</div>
+              </div>
+            </div>
+        
+            <!-- PROFILE FOLLOWERS -->
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  FRIENDS
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#profileFollowersAccordion">
+                <div class="accordion-body">Placeholder content for this accordion, which will contain this profile's friends. </div>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+        
+        
+        
+        </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
