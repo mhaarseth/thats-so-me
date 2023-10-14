@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styling/css/index.css" />
-    <title>That's so Me! - Reister</title>
+    <title>That's so Me! - Register</title>
   </head>
   <body>
     <header>
@@ -22,12 +22,11 @@
       <form action="/profile/" class="was-validated" formvalidate>
         <div class="form-outline mb-4">
           <input
-            type="password"
+            type="text"
             class="form-control"
             id="userName"
             name="userName"
             placeholder="User name"
-            value=""
             required
           />
         </div>
@@ -56,10 +55,10 @@
         </div>
 
         <button
-          type="submit"
+          type="button"
           class="btn btn-primary btn-block mb-4"
           action="profile.html"
-          id="registerbutton"
+          id="registerButton"
         >
           Register
         </button>
@@ -70,5 +69,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/register.js"></script>
   </body>
 </html>
