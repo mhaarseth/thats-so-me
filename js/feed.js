@@ -23,9 +23,10 @@ async function getPosts(url) {
       // const id = json[i].id;
 
       contentFeed.innerHTML += `
-      <div class="card-body">
-                <h5 class="card-title">${postTitle}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${postDate}</h6>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">${postTitle}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${postDate}</h6>
                 <p class="card-text">
                   ${postText}
                 </p>
@@ -37,7 +38,8 @@ async function getPosts(url) {
                     height="32"
                     class="rounded-circle"
                 /></a>
-              </div>
+          </div>
+        </div>
       `;
     }
   } catch (error) {
