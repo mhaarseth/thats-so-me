@@ -2,4 +2,4 @@ email: "maghaa60436@stud.noroff.no"
 
 id: 1624
 
-name: "mhaarseth"
+name: "mhaarseth"1|e
