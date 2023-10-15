@@ -39,13 +39,16 @@
                     <div class="modal-content">
                       <div class="modal-body">
                         <div class="mb-3">
-                          <label for="newPostTextArea" class="form-label"
-                            >What's up?</label
-                          >
+                          <form id="modalForm">
+
+                          <textarea class="form-control" id="postTitle" rows="1" placeholder="Post title" name="title" required></textarea>
+                        
                           <textarea
                             class="form-control"
                             id="newPostTextArea"
+                            name="body"
                             rows="3"
+                            placeholder="Say something relatable!"
                           ></textarea>
                         </div>
                       </div>
@@ -57,7 +60,8 @@
                         >
                           Close
                         </button>
-                        <button type="button" class="btn btn-primary">Post</button>
+                        <button type="submit" class="btn btn-primary">Post</button>
+                      </form>
                       </div>
                     </div>
                   </div>
@@ -132,14 +136,14 @@
         
         <!-- PROFILE POSTS -->
         
-        <div class="accordion accordion-flush" id="profileFollowersAccordion">
+        <div class="accordion accordion-flush" id="profileAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                   POSTS
                 </button>
               </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#profileFollowersAccordion">
+              <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#profileAccordion">
                     <div class="card mt-4 mb-4">
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted">28.02.1983</h6>
@@ -159,7 +163,7 @@
                   FOLLOWERS
                 </button>
               </h2>
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#profileFollowersAccordion">
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#profilesAccordion">
                 <div class="accordion-body">Placeholder content for this accordion, which will contain the profile's followers</div>
               </div>
             </div>
@@ -171,7 +175,7 @@
                   FRIENDS
                 </button>
               </h2>
-              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#profileFollowersAccordion">
+              <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#profileAccordion">
                 <div class="accordion-body">Placeholder content for this accordion, which will contain this profile's friends. </div>
               </div>
             </div>
@@ -188,5 +192,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/profile.js" type="module"></script>
   </body>
 </html>
