@@ -28,40 +28,44 @@
         
         <!--  MODAL START-->
         
-                <div
-                  class="modal fade"
-                  id="newPost"
-                  tabindex="-1"
-                  aria-labelledby="newPostLabel"
-                  aria-hidden="true"
-                >
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <div class="mb-3">
-                          <label for="newPostTextArea" class="form-label"
-                            >What's up?</label
-                          >
-                          <textarea
-                            class="form-control"
-                            id="newPostTextArea"
-                            rows="3"
-                          ></textarea>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button type="button" class="btn btn-primary">Post</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div
+        class="modal fade"
+        id="newPost"
+        tabindex="-1"
+        aria-labelledby="newPostLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="mb-3">
+                <form id="modalForm">
+
+                <textarea class="form-control" id="postTitle" rows="1" placeholder="Post title" name="title" required></textarea>
+              
+                <textarea
+                  class="form-control"
+                  id="newPostTextArea"
+                  name="body"
+                  rows="3"
+                  placeholder="Say something relatable!"
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
         
         <!-- MODAL END -->
         
