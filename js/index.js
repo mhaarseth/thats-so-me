@@ -23,8 +23,8 @@ form.addEventListener("submit", async (event) => {
 /**
  * Sends a request to the server to log in the user with the provided credentials.
  * @param {Object} loginCredentials - The login credentials.
- * @param {string} loginCredentials.username - The username for login.
- * @param {string} loginCredentials.password - The password for login.
+ * @param {string} username - The username for login.
+ * @param {string} password - The password for login.
  */
 
 async function loginUser(loginCredentials) {
