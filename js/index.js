@@ -6,6 +6,7 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const loginCredentials = Object.fromEntries(formData.entries());
+  console.log(loginCredentials);
   const message = document.getElementById("message");
 
   try {
@@ -42,8 +43,6 @@ async function loginUser(loginCredentials) {
   const json = await response.json();
   const token = json.accessToken;
   localStorage.setItem("token", token);
-  const name = json.name;
-  localStorage.setItem("name", name);
 
   if (response.ok === true) {
     return json;
