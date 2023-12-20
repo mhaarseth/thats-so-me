@@ -20,7 +20,6 @@ async function getPosts(url) {
       const postTitle = json[i].title;
       const postDate = json[i].created;
       const postText = json[i].body;
-      // const id = json[i].id;
 
       contentFeed.innerHTML += `
       <div class="card mt-4">
@@ -30,14 +29,8 @@ async function getPosts(url) {
                 <p class="card-text">
                   ${postText}
                 </p>
-                <a href="#" class="card-link"
-                  ><img
-                    src="https://github.com/mdo.png"
-                    alt="mdo"
-                    width="32"
-                    height="32"
-                    class="rounded-circle"
-                /></a>
+                <a href="#" class="card-link fw-semibold fs-4"
+                  >View full post</a>
           </div>
         </div>
       `;
@@ -52,7 +45,6 @@ const postsUrl = `${NOROFF_API}posts`;
 getPosts(postsUrl);
 
 const modalForm = document.getElementById("modalForm");
-// console.log(modalForm);
 
 modalForm.addEventListener("submit", newPost);
 
