@@ -1,11 +1,11 @@
 import { NOROFF_API } from "../js/const/api.js";
-
 const form = document.getElementById("loginForm");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   const loginCredentials = Object.fromEntries(formData.entries());
+  console.log(loginCredentials);
   const message = document.getElementById("message");
 
   try {
@@ -19,13 +19,6 @@ form.addEventListener("submit", async (event) => {
     );
   }
 });
-
-/**
- * Sends a request to the server to log in the user with the provided credentials.
- * @param {Object} loginCredentials - The login credentials.
- * @param {string} username - The username for login.
- * @param {string} password - The password for login.
- */
 
 async function loginUser(loginCredentials) {
   const loginUrl = `${NOROFF_API}auth/login`;
@@ -42,8 +35,6 @@ async function loginUser(loginCredentials) {
   const json = await response.json();
   const token = json.accessToken;
   localStorage.setItem("token", token);
-  const name = json.name;
-  localStorage.setItem("name", name);
 
   if (response.ok === true) {
     return json;
