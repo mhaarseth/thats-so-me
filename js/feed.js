@@ -13,7 +13,8 @@ async function getPosts(url) {
 
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
-    console.log(json);
+    
+
 
     for (let i = 0; i < json.length; i++) {
       const contentFeed = document.getElementById("content-feed");
@@ -35,8 +36,44 @@ async function getPosts(url) {
         </div>
       `;
     }
+
+
+
+      const searchField = document.getElementById("search-field");
+      searchField.addEventListener("keyup", function search(event) {
+      const contentFeed = document.getElementById("content-feed");
+      contentFeed.innerHTML = "";
+      
+      event.preventDefault();
+
+      const searchInput = document.getElementById("search-field");
+      const searchTerm = searchInput.value.toLowerCase();
+      const searchResults = json.filter((json) => json.title.toLowerCase().includes(searchTerm)).map((json) => json);
+
+      for (let i = 0; i < searchResults.length; i++) {
+      //const contentFeed = document.getElementById("content-feed");
+      const postTitle = searchResults[i].title;
+      const postDate = searchResults[i].created;
+      const postText = searchResults[i].body;
+
+      contentFeed.innerHTML += `
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">${postTitle}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${postDate}</h6>
+                <p class="card-text">
+                  ${postText}
+                </p>
+                <a href="#" class="card-link fw-semibold fs-4"
+                  >View full post</a>
+          </div>
+        </div>
+      `;
+      }
+    });
+  
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 }
 
@@ -52,7 +89,7 @@ async function newPost(event) {
   event.preventDefault();
 
   const formContent = new FormData(modalForm);
-  console.log(formContent);
+  //console.log(formContent);
   const newPostContent = Object.fromEntries(formContent.entries());
 
   try {
