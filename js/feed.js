@@ -1,4 +1,5 @@
 import { NOROFF_API } from "./const/api.js";
+import { filterTags } from "./components/filterTags.js";
 
 async function getPosts(url) {
   try {
@@ -10,10 +11,10 @@ async function getPosts(url) {
         Authorization: `Bearer ${token}`,
       },
     };
-
-    const response = await fetch(url, fetchOptions);
+    const postsUrl = NOROFF_API + "posts" + "?_tags";
+    const response = await fetch(postsUrl, fetchOptions);
     const json = await response.json();
-    
+
 
 
     for (let i = 0; i < json.length; i++) {
@@ -21,6 +22,8 @@ async function getPosts(url) {
       const postTitle = json[i].title;
       const postDate = json[i].created;
       const postText = json[i].body;
+      const postTags = json[i].tags;
+      console.log(postTags);
       // const id = json[i].id;
 
       contentFeed.innerHTML += `
@@ -28,17 +31,12 @@ async function getPosts(url) {
         <div class="card-body">
           <h5 class="card-title">${postTitle}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${postDate}</h6>
+            <p class="fs-6 fw-light fst-italic">#${postTags}</p>
                 <p class="card-text">
                   ${postText}
                 </p>
-                <a href="#" class="card-link"
-                  ><img
-                    src="https://github.com/mdo.png"
-                    alt="mdo"
-                    width="32"
-                    height="32"
-                    class="rounded-circle"
-                /></a>
+                <a href="#" class="card-link fw-semibold fs-4"
+                  >View full post</a>
           </div>
         </div>
       `;
@@ -46,11 +44,11 @@ async function getPosts(url) {
 
 
 
-      const searchField = document.getElementById("search-field");
-      searchField.addEventListener("keyup", function search(event) {
+    const searchField = document.getElementById("search-field");
+    searchField.addEventListener("keyup", function search(event) {
       const contentFeed = document.getElementById("content-feed");
       contentFeed.innerHTML = "";
-      
+
       event.preventDefault();
 
       const searchInput = document.getElementById("search-field");
@@ -58,12 +56,12 @@ async function getPosts(url) {
       const searchResults = json.filter((json) => json.title.toLowerCase().includes(searchTerm)).map((json) => json);
 
       for (let i = 0; i < searchResults.length; i++) {
-      //const contentFeed = document.getElementById("content-feed");
-      const postTitle = searchResults[i].title;
-      const postDate = searchResults[i].created;
-      const postText = searchResults[i].body;
+        //const contentFeed = document.getElementById("content-feed");
+        const postTitle = searchResults[i].title;
+        const postDate = searchResults[i].created;
+        const postText = searchResults[i].body;
 
-      contentFeed.innerHTML += `
+        contentFeed.innerHTML += `
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">${postTitle}</h5>
@@ -78,7 +76,7 @@ async function getPosts(url) {
       `;
       }
     });
-  
+
   } catch (error) {
     alert(error);
   }
@@ -129,3 +127,5 @@ async function postNewPost(newPostContent) {
   }
   throw new Error(json.errors[0].message);
 }
+
+filterTags();
