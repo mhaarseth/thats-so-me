@@ -23,8 +23,8 @@ async function getPosts(url) {
       const postDate = json[i].created;
       const postText = json[i].body;
       const postTags = json[i].tags;
-      console.log(postTags);
-      // const id = json[i].id;
+      const postId = json[i].id;
+      console.log(postId);
 
       contentFeed.innerHTML += `
       <div class="card mt-4">
@@ -35,7 +35,7 @@ async function getPosts(url) {
                 <p class="card-text">
                   ${postText}
                 </p>
-                <a href="#" class="card-link fw-semibold fs-4"
+                <a href="../single-post/index.html?id=${postId}" class="card-link fw-semibold fs-4"
                   >View full post</a>
           </div>
         </div>
