@@ -1,4 +1,5 @@
 import { NOROFF_API } from "./const/api.js";
+import { deletePost } from "./components/delete.js";
 
 const modalForm = document.getElementById("modalForm");
 // console.log(modalForm);
@@ -43,7 +44,6 @@ async function postNewPost(newPostContent) {
 }
 
 function setProfileName() {
-  console.log("function running");
   const profileName = document.getElementById("profileName");
   const storedProfileName = localStorage.getItem("name");
   profileName.innerHTML = `${storedProfileName}`;
@@ -64,20 +64,25 @@ async function showOwnPosts(url) {
 
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
-    console.log(json);
+    //console.log(json);
 
     for (let i = 0; i < json.length; i++) {
       const contentFeed = document.querySelector(".ownContentFeed");
-      console.log(contentFeed);
       const postTitle = json[i].title;
       const postDate = json[i].created;
       const postText = json[i].body;
-      // const id = json[i].id;
+      const id = json[i].id;
 
       contentFeed.innerHTML += `
           <div class="card mt-4">
             <div class="card-body">
+            <div class="container p-0 d-flex justify-content-between">
               <h5 class="card-title">${postTitle}</h5>
+              <div>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger" id="delete-button-${id}">Delete</button>
+              </div>
+            </div>
                 <h6 class="card-subtitle mb-2 text-muted">${postDate}</h6>
                     <p class="card-text">
                       ${postText}
@@ -93,9 +98,15 @@ async function showOwnPosts(url) {
               </div>
             </div>
           `;
+      console.log(id)
+      const deleteButton = document.getElementById(`delete-button-${id}`);
+      deleteButton.addEventListener("click", function () {
+        deletePost(id);
+      });
+
     }
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 }
 
@@ -103,3 +114,4 @@ const profileName = localStorage.getItem("name");
 console.log(profileName);
 const postsUrl = `${NOROFF_API}profiles/${profileName}/posts`;
 showOwnPosts(postsUrl);
+
