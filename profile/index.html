@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
       <div class="container col-sm-12">
 
-        <!--  MODAL START-->
+        <!--  NEW POST MODAL START-->
 
         <div class="modal fade" id="newPost" tabindex="-1" aria-labelledby="newPostLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -36,7 +36,35 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary">Post</button>
+                <button type="submit" class="btn btn-primary" id="modalButton">Post</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDIT POST MODAL START -->
+
+        <div class="modal fade" id="editPost" tabindex="-1" aria-labelledby="editPostLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="mb-3">
+                  <form id="editModalForm">
+
+                    <textarea class=" form-control" id="editPostTitle" rows="1" placeholder="Post title" name="title"
+                      required>
+                    </textarea>
+
+                    <textarea class="form-control" id="editPostTextArea" name="body" rows="3"
+                      placeholder="Say something relatable!"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">Update post</button>
                 </form>
               </div>
             </div>
@@ -51,6 +79,8 @@
         </button>
         <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle mt-1" />
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
 
           <!--  MENU ITEMS -->
 

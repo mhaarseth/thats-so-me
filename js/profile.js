@@ -1,5 +1,6 @@
 import { NOROFF_API } from "./const/api.js";
 import { deletePost } from "./components/delete.js";
+import { editPost } from "./components/edit.js";
 
 const modalForm = document.getElementById("modalForm");
 // console.log(modalForm);
@@ -79,7 +80,7 @@ async function showOwnPosts(url) {
             <div class="container p-0 d-flex justify-content-between">
               <h5 class="card-title">${postTitle}</h5>
               <div>
-                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-primary" id="edit-button-${id}" data-bs-toggle="modal" data-bs-target="#editPost">Edit</button>
                 <button type="button" class="btn btn-danger" id="delete-button-${id}">Delete</button>
               </div>
             </div>
@@ -98,10 +99,14 @@ async function showOwnPosts(url) {
               </div>
             </div>
           `;
-      console.log(id)
+      //console.log(id)
       const deleteButton = document.getElementById(`delete-button-${id}`);
       deleteButton.addEventListener("click", function () {
         deletePost(id);
+      });
+      const editButton = document.getElementById(`edit-button-${id}`);
+      editButton.addEventListener("click", function () {
+        editPost(json, id);
       });
 
     }
