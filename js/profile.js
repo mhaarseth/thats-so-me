@@ -3,7 +3,6 @@ import { deletePost } from "./components/delete.js";
 import { editPost } from "./components/edit.js";
 
 const modalForm = document.getElementById("modalForm");
-// console.log(modalForm);
 
 modalForm.addEventListener("submit", newPost);
 
@@ -65,7 +64,6 @@ async function showOwnPosts(url) {
 
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
-    //console.log(json);
 
     for (let i = 0; i < json.length; i++) {
       const contentFeed = document.querySelector(".ownContentFeed");
@@ -99,16 +97,18 @@ async function showOwnPosts(url) {
               </div>
             </div>
           `;
-      //console.log(id)
-      const deleteButton = document.getElementById(`delete-button-${id}`);
-      deleteButton.addEventListener("click", function () {
-        deletePost(id);
-      });
-      const editButton = document.getElementById(`edit-button-${id}`);
-      editButton.addEventListener("click", function () {
-        editPost(json, id);
-      });
 
+      setTimeout(() => {
+        const deleteButton = document.getElementById(`delete-button-${id}`);
+        deleteButton.addEventListener("click", function () {
+          deletePost(id);
+        });
+
+        const editButton = document.getElementById(`edit-button-${id}`);
+        editButton.addEventListener("click", function () {
+          editPost(json[i], id);
+        });
+      }, 0);
     }
   } catch (error) {
     alert(error);
@@ -116,7 +116,5 @@ async function showOwnPosts(url) {
 }
 
 const profileName = localStorage.getItem("name");
-console.log(profileName);
 const postsUrl = `${NOROFF_API}profiles/${profileName}/posts`;
 showOwnPosts(postsUrl);
-

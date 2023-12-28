@@ -1,11 +1,12 @@
 import { NOROFF_API } from "../const/api.js";
 
 export function editPost(json, id) {
+    console.log(json)
     const editModalTitle = document.getElementById("editPostTitle");
-    editModalTitle.value = json[0].title;
+    editModalTitle.value = json.title;
 
     const editModalBody = document.getElementById("editPostTextArea")
-    editModalBody.value = json[0].body;
+    editModalBody.value = json.body;
 
     editModalForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -14,9 +15,7 @@ export function editPost(json, id) {
         const token = localStorage.getItem("token");
 
         const formContent = new FormData(editModalForm);
-        console.log(formContent);
         const editedPostContent = Object.fromEntries(formContent.entries());
-        console.log(editedPostContent)
 
         const editPostOptions = {
             method: "PUT",
@@ -28,7 +27,7 @@ export function editPost(json, id) {
         };
 
         const response = await fetch(editPostUrl, editPostOptions);
-        const json = await response.json();
+        //const json = await response.json();
 
         if (response.ok === true) {
             location.reload();
