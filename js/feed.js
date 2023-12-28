@@ -56,7 +56,6 @@ async function getPosts(url) {
       const searchResults = json.filter((json) => json.title.toLowerCase().includes(searchTerm)).map((json) => json);
 
       for (let i = 0; i < searchResults.length; i++) {
-        //const contentFeed = document.getElementById("content-feed");
         const postTitle = searchResults[i].title;
         const postDate = searchResults[i].created;
         const postText = searchResults[i].body;
@@ -87,7 +86,6 @@ const postsUrl = `${NOROFF_API}posts`;
 getPosts(postsUrl);
 
 const modalForm = document.getElementById("modalForm");
-// console.log(modalForm);
 
 modalForm.addEventListener("submit", newPost);
 
@@ -95,7 +93,6 @@ async function newPost(event) {
   event.preventDefault();
 
   const formContent = new FormData(modalForm);
-  //console.log(formContent);
   const newPostContent = Object.fromEntries(formContent.entries());
 
   try {

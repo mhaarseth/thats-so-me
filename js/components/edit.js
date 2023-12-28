@@ -1,7 +1,21 @@
 import { NOROFF_API } from "../const/api.js";
 
+/**
+ * Edits a chosen post.
+ * @param {Array<Object>} data The data of the post to be edited.
+ * @param {number} id Id of post to be edited.
+ * @example
+ * ```js
+ * //This function is called when the user clicks the edit button on their own posts on their profile page. 
+ * //The first argument is specifiying which of the arrays' data to fetch when pressing the edit button, to populate the title and text fields of the edit modal.
+ * //The second argument specifies which post to delete.
+ * editPost(json[i], 1234)
+ * 
+ * ```
+ */
+
 export function editPost(json, id) {
-    console.log(json)
+
     const editModalTitle = document.getElementById("editPostTitle");
     editModalTitle.value = json.title;
 
@@ -27,7 +41,6 @@ export function editPost(json, id) {
         };
 
         const response = await fetch(editPostUrl, editPostOptions);
-        //const json = await response.json();
 
         if (response.ok === true) {
             location.reload();
