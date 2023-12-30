@@ -18,16 +18,6 @@ export function postToFeed() {
     }
   }
 
-  /**
-   * Makes a new post.
-   * @param {object<data>} data The data collected from the new post form.
-   * @example
-   * ```js
-   * //This function is called when users fill out the new post form and click the post button.
-   * postNewPost("title: "string", "body:"string"");
-   * ```
-   */
-
   async function postNewPost(newPostContent) {
     const newPostUrl = `${NOROFF_API}posts/`;
     const token = localStorage.getItem("token");

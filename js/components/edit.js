@@ -2,13 +2,13 @@ import { NOROFF_API } from "../const/api.js";
 
 /**
  * Edits a chosen post.
- * @param {Array<Object>} data The data of the post to be edited.
+ * @param {Promise<string[]>} data The data of the post to be edited.
  * @param {number} id Id of post to be edited.
  * @example
  * ```js
  * //This function is called when the user clicks the edit button on their own posts on their profile page. 
  * //The first argument is specifiying which of the arrays' data to fetch when pressing the edit button, to populate the title and text fields of the edit modal.
- * //The second argument specifies which post to delete.
+ * //The second argument specifies which post to edit.
  * editPost(json[i], 1234)
  * 
  * ```

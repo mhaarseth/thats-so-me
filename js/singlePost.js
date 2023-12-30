@@ -19,7 +19,6 @@ async function singlePost() {
         const response = await fetch(postsUrl, fetchOptions);
         const json = await response.json();
 
-        console.log(json);
         const postTitle = json.title;
         const postMedia = json.media;
         const postBody = json.body;
@@ -28,8 +27,8 @@ async function singlePost() {
         const singlePostContent = document.getElementById("single-post-content")
 
         singlePostContent.innerHTML = `
-        <div class="card mb-3 mt-2">
-            <img src="${postMedia}" class="card-img-top" alt="Post media">
+        <div class="card mb-3 mt-2 col-12">
+            <img src="${postMedia}" class="card-img-top mx-auto d-block w-100" alt="">
             <div class="card-body">
             
                 <h5 class="card-title fw-bold">${postTitle}</h5>
