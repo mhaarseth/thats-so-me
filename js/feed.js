@@ -35,7 +35,7 @@ async function getPosts(url) {
                 <p class="card-text">
                   ${postText}
                 </p>
-                <a href="../single-post/index.html?id=${postId}" class="card-link fw-semibold fs-4"
+                <a href="../single-post/index.html?id=${postId}" class="card-link fw-bold fs-3"
                   >View full post</a>
           </div>
         </div>
@@ -59,16 +59,18 @@ async function getPosts(url) {
         const postTitle = searchResults[i].title;
         const postDate = searchResults[i].created;
         const postText = searchResults[i].body;
+        const postTags = searchResults[i].tags;
 
         contentFeed.innerHTML += `
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">${postTitle}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${postDate}</h6>
+            <p class="fs-6 fw-light fst-italic">#${postTags}</p>
                 <p class="card-text">
                   ${postText}
                 </p>
-                <a href="#" class="card-link fw-semibold fs-4"
+                <a href="#" class="card-link fw-bold fs-3"
                   >View full post</a>
           </div>
         </div>

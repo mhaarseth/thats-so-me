@@ -1,4 +1,4 @@
-import { NOROFF_API } from "./const/api.js";
+/*import { NOROFF_API } from "./const/api.js";
 
 export function postToFeed() {
   const modalForm = document.getElementById("modalForm");
@@ -39,4 +39,4 @@ export function postToFeed() {
     }
     throw new Error(json.errors[0].message);
   }
-}
+}*/
