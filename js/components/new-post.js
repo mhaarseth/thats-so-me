@@ -1,8 +1,7 @@
-import { NOROFF_API } from "./const/api.js";
+/*import { NOROFF_API } from "./const/api.js";
 
 export function postToFeed() {
   const modalForm = document.getElementById("modalForm");
-  // console.log(modalForm);
 
   modalForm.addEventListener("submit", newPost);
 
@@ -10,11 +9,9 @@ export function postToFeed() {
     event.preventDefault();
 
     const formContent = new FormData(modalForm);
-    console.log(formContent);
     const newPostContent = Object.fromEntries(formContent.entries());
 
     try {
-      const response = await postNewPost(newPostContent);
       window.location.href = "/profile/";
     } catch (error) {
       alert(error);
@@ -42,4 +39,4 @@ export function postToFeed() {
     }
     throw new Error(json.errors[0].message);
   }
-}
+}*/

@@ -10754,3 +10754,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }/*# sourceMappingURL=index.css.map */
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-default {
+    cursor: pointer;
+}
